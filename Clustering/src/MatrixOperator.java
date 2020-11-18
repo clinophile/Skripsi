@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 
-import cern.colt.matrix.DoubleMatrix2D;
 import java.util.Arrays;
 
 /**
@@ -27,12 +26,12 @@ public class MatrixOperator {
         return transposedMatrix;
     }
     
-    public double[][] multiply(DoubleMatrix2D data1, DoubleMatrix2D data2){
+    public double[][] multiply(Matrix data1, Matrix data2){
         System.out.println("------------multiply------------");
-        double[][] multipliedMatrix = new double[data1.rows()][data2.columns()];
-        for(int i=0; i<data1.rows(); i++){
-            for(int j=0; j<data2.columns(); j++){
-                for(int k=0; k<data1.columns(); k++){
+        double[][] multipliedMatrix = new double[data1.getRowDimension()][data2.getColumnDimension()];
+        for(int i=0; i<data1.getRowDimension(); i++){
+            for(int j=0; j<data2.getColumnDimension(); j++){
+                for(int k=0; k<data1.getColumnDimension(); k++){
                     multipliedMatrix[i][j] += data1.get(i, k) * data2.get(k, j);
                 }System.out.print(multipliedMatrix[i][j] + "  ");
             }System.out.print("\n");

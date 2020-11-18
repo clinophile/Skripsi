@@ -8,7 +8,7 @@ import cern.colt.matrix.DoubleMatrix2D;
 import cern.colt.matrix.impl.DenseDoubleMatrix2D;
 import java.io.IOException;
 import javax.swing.JFileChooser;
-import cern.colt.matrix.linalg.SingularValueDecomposition;
+//import cern.colt.matrix.linalg.SingularValueDecomposition;
 import java.io.File;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -345,18 +345,18 @@ public class MainFrame extends javax.swing.JFrame {
             }else if(radioButtonKMeansSVD.isSelected()){
 
                 System.out.println("\n--------------KMeans + SVD------------------------\n");
-                DoubleMatrix2D data = new DenseDoubleMatrix2D(bobot.getHasilPembobotan());
+                Matrix data = new Matrix(bobot.getHasilPembobotan());
                 SingularValueDecomposition svd = new SingularValueDecomposition(data);
                 System.out.println("U:\n");
                 System.out.println(svd.getU() + "\n");
                 System.out.println("S:\n");
                 System.out.println(svd.getS() + "\n");
                 System.out.println("Vt:\n");
-                System.out.println(svd.getV().viewDice() + "\n");
+                System.out.println(svd.getV().transpose() + "\n");
                 System.out.println("U*S:");
                 double[][] US = matrixGen.multiply(svd.getU(), svd.getS());
                 System.out.println("S*V:");
-                double[][] SV = matrixGen.multiply(svd.getS(), svd.getV().viewDice());
+                double[][] SV = matrixGen.multiply(svd.getS(), svd.getV().transpose());
                 System.out.println("\n");
                 System.out.println("Do SVD");
                 DimensionReduction reduksi = new DimensionReduction(bobot.getGlobalTermList(), bobot.getListDocument(), US);
@@ -387,18 +387,18 @@ public class MainFrame extends javax.swing.JFrame {
             }else if(radioButtonFuzzySVD.isSelected()){
 
                 System.out.println("\n--------------Fuzzy C Means + SVD------------------------\n");
-                DoubleMatrix2D data = new DenseDoubleMatrix2D(bobot.getHasilPembobotan());
+                Matrix data = new Matrix(bobot.getHasilPembobotan());
                 SingularValueDecomposition svd = new SingularValueDecomposition(data);
                 System.out.println("U:\n");
                 System.out.println(svd.getU() + "\n");
                 System.out.println("S:\n");
                 System.out.println(svd.getS() + "\n");
                 System.out.println("Vt:\n");
-                System.out.println(svd.getV().viewDice() + "\n");
+                System.out.println(svd.getV().transpose() + "\n");
                 System.out.println("U*S:");
                 double[][] US = matrixGen.multiply(svd.getU(), svd.getS());
                 System.out.println("S*V:");
-                double[][] SV = matrixGen.multiply(svd.getS(), svd.getV().viewDice());
+                double[][] SV = matrixGen.multiply(svd.getS(), svd.getV().transpose());                
                 System.out.println("\n");
                 System.out.println("Do SVD");
                 DimensionReduction reduksi = new DimensionReduction(bobot.getGlobalTermList(), bobot.getListDocument(), US);
