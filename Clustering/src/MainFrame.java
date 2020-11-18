@@ -8,7 +8,6 @@ import cern.colt.matrix.DoubleMatrix2D;
 import cern.colt.matrix.impl.DenseDoubleMatrix2D;
 import java.io.IOException;
 import javax.swing.JFileChooser;
-//import cern.colt.matrix.linalg.SingularValueDecomposition;
 import java.io.File;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
