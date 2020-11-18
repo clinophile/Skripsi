@@ -46,8 +46,6 @@ public class MainFrame extends javax.swing.JFrame {
         matrixGen =  new MatrixOperator();
         popupPusat = new Centroid();
         popup = new PopupController();
-//        radioButtonKMedoids.setEnabled(false);
-//        radioButtonKMedoidsSVD.setEnabled(false);
         radioButtonKMeans.setEnabled(false);
         radioButtonKMeansSVD.setEnabled(false);
         radioButtonFuzzy.setEnabled(false);
@@ -308,8 +306,6 @@ public class MainFrame extends javax.swing.JFrame {
                 }else{
                     textfieldTerm.setText(String.valueOf(bobot.getGlobalTermList().getTotalTerm()));
                     textfieldDokumen.setText(String.valueOf(bobot.getListDocument().size()));
-//                    radioButtonKMedoids.setEnabled(true);
-//                    radioButtonKMedoidsSVD.setEnabled(true);
                     radioButtonKMeans.setEnabled(true);
                     radioButtonKMeansSVD.setEnabled(true);
                     radioButtonFuzzy.setEnabled(true);
@@ -334,51 +330,6 @@ public class MainFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Nilai K tidak boleh sama atau lebih dari jumlah dokumen", 
                     "Gagal", JOptionPane.ERROR_MESSAGE);
         }else{
-//            if(radioButtonKMedoids.isSelected()){
-//
-//                System.out.println("\n--------------KMedoids------------------------\n");
-//                DoubleMatrix2D data = new DenseDoubleMatrix2D(matrixGen.transpose(bobot.getHasilPembobotan()));
-//                KMedoids kmedoids = new KMedoids(data, Integer.valueOf(textFieldK.getText()));
-//                kmedoids.cluster();
-//                System.out.println(kmedoids.getMedoidsToDisplay().get(0, 0));
-//                System.out.println(kmedoids.getPartition());
-//                populateTable(kmedoids.getPartition());
-//                popup.showPusatCluster(kmedoids.getMedoidString());
-//                waktuEksekusi.setText(String.valueOf(kmedoids.getExecTime()) + " s");
-//                iterasi.setText(String.valueOf(kmedoids.getTotalIterations()));
-//
-//            }else if(radioButtonKMedoidsSVD.isSelected()){
-//
-//                System.out.println("\n--------------KMedoids + SVD------------------------\n");
-//                DoubleMatrix2D data = new DenseDoubleMatrix2D(bobot.getHasilPembobotan());
-//                SingularValueDecomposition svd = new SingularValueDecomposition(data);
-//                System.out.println("U:");
-//                System.out.println(svd.getU() + "\n");
-//                System.out.println("S:");
-//                System.out.println(svd.getS() + "\n");
-//                System.out.println("Vt:");
-//                System.out.println(svd.getV().viewDice() + "\n");
-//                System.out.println("U*S:");
-//                double[][] US = matrixGen.multiply(svd.getU(), svd.getS());
-//                System.out.println("\nS*V:");
-//                double[][] SV = matrixGen.multiply(svd.getS(), svd.getV().viewDice());
-//                System.out.println("\n");
-//                System.out.println("Do SVD");
-//                DimensionReduction reduksi = new DimensionReduction(bobot.getGlobalTermList(), bobot.getListDocument(), US);
-//                reduksi.doReduksiDimensi();
-//
-//                DoubleMatrix2D reducedMatrix = new DenseDoubleMatrix2D(reduksi.getReducedMatrix());
-//                DoubleMatrix2D transposedSV = new DenseDoubleMatrix2D(matrixGen.transpose(SV));
-//                KMedoids kmedoids = new KMedoids(reducedMatrix, transposedSV, Integer.valueOf(textFieldK.getText()));
-//                kmedoids.cluster();
-//                System.out.println(kmedoids.getMedoids().size());
-//                System.out.println(kmedoids.getPartition());
-//
-//                populateTable(kmedoids.getPartition());
-//                popup.showPusatCluster(kmedoids.getMedoidString());
-//                waktuEksekusi.setText(String.valueOf(kmedoids.getExecTime()) + " s");
-//                iterasi.setText(String.valueOf(kmedoids.getTotalIterations()));
-//        }
              if(radioButtonKMeans.isSelected()){
 
                 System.out.println("\n--------------KMeans------------------------\n");
