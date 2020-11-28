@@ -9,8 +9,6 @@
  */
 
 import cern.colt.matrix.DoubleMatrix2D;
-import cern.colt.matrix.doublealgo.Statistic;
-import cern.colt.matrix.doublealgo.Statistic.VectorVectorFunction;
 import cern.colt.matrix.impl.DenseDoubleMatrix2D;
 import cern.colt.matrix.impl.SparseDoubleMatrix2D;
 import org.apache.commons.math3.random.MersenneTwister;
@@ -154,11 +152,4 @@ public class KMeans {
       this.randomGenerator = random;
    }
 
-//   public VectorVectorFunction getDistanceMeasure() {
-//      return distanceMeasure;
-//   }
-//
-//   public void setDistanceMeasure(VectorVectorFunction distanceMeasure) {
-//      this.distanceMeasure = distanceMeasure;
-//   }
 }

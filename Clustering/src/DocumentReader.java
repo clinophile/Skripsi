@@ -59,22 +59,6 @@ public class DocumentReader {
                     this.lstDoc.add(myDoc);
                 
                 }
-////            String folderName = folderNames[i] ;
-////            System.out.println(folderName);
-////            System.out.println(folders);            
-//////            List<File> files = Arrays.asList(folder.listFiles(new FileFilter(){
-//////            
-//////                @Override
-//////                public boolean accept(File f){
-//////                    return f.isFile() && f.getName().endsWith(".txt");
-//////                }
-//////            }));
-////            if (files != null){
-////                System.out.println(files);
-////                BufferedReader in = null;
-//               
-//                }
-  //          }
         }
         System.out.println("\n---------------tf idf------------------------\n");
     }

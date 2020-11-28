@@ -7,10 +7,6 @@
    <P>
    The singular values, sigma[k] = S[k][k], are ordered so that
    sigma[0] >= sigma[1] >= ... >= sigma[n-1].
-   <P>
-   The singular value decompostion always exists, so the constructor will
-   never fail.  The matrix condition number and the effective numerical
-   rank can be computed from this decomposition.
    */
 
 public class SingularValueDecomposition implements java.io.Serializable {
@@ -47,8 +43,6 @@ public class SingularValueDecomposition implements java.io.Serializable {
 
    public SingularValueDecomposition (Matrix Arg) {
 
-      // Derived from LINPACK code.
-      // Initialize.
       double[][] A = Arg.getArrayCopy();
       m = Arg.getRowDimension();
       n = Arg.getColumnDimension();
@@ -67,17 +61,18 @@ public class SingularValueDecomposition implements java.io.Serializable {
       boolean wantu = true;
       boolean wantv = true;
 
-      // Reduce A to bidiagonal form, storing the diagonal elements
-      // in s and the super-diagonal elements in e.
-
+      // Merubah A ke bentuk bidiagonal, simpan elemen diagonal
+      // dalam S dan super-diagonal elemen dalam e 
+     
       int nct = Math.min(m-1,n);
       int nrt = Math.max(0,Math.min(n-2,m));
       for (int k = 0; k < Math.max(nct,nrt); k++) {
          if (k < nct) {
 
-            // Compute the transformation for the k-th column and
-            // place the k-th diagonal in s[k].
-            // Compute 2-norm of k-th column without under/overflow.
+            // Masukan transformasi ke dalam kolom ke-k
+            // dan tempatkan diagonal ke-k dalam s[k]
+            // Hitung eigen value kolom ke-k
+            
             s[k] = 0;
             for (int i = k; i < m; i++) {
                s[k] = Maths.hypot(s[k],A[i][k]);
@@ -96,7 +91,6 @@ public class SingularValueDecomposition implements java.io.Serializable {
          for (int j = k+1; j < n; j++) {
             if ((k < nct) && (s[k] != 0.0))  {
 
-            // Apply the transformation.
 
                double t = 0;
                for (int i = k; i < m; i++) {
@@ -107,16 +101,14 @@ public class SingularValueDecomposition implements java.io.Serializable {
                   A[i][j] += t*A[i][k];
                }
             }
-
-            // Place the k-th row of A into e for the
-            // subsequent calculation of the row transformation.
-
+            // Tempatkan baris ke-k dari A ke dalam e
+            // untuk perhitungan selanjutnya saat transformasi baris.
+            
             e[j] = A[k][j];
          }
          if (wantu && (k < nct)) {
-
-            // Place the transformation in U for subsequent back
-            // multiplication.
+            // Tempatkan transformasi dalam U untuk
+            // perkalian selanjutnya.
 
             for (int i = k; i < m; i++) {
                U[i][k] = A[i][k];
@@ -124,9 +116,10 @@ public class SingularValueDecomposition implements java.io.Serializable {
          }
          if (k < nrt) {
 
-            // Compute the k-th row transformation and place the
-            // k-th super-diagonal in e[k].
-            // Compute 2-norm without under/overflow.
+            // Hitung transformasi baris ke-k dan tempatkan
+            // super-diagonal ke-k dalam e[k].
+            // Hitung eigen value
+
             e[k] = 0;
             for (int i = k+1; i < n; i++) {
                e[k] = Maths.hypot(e[k],e[i]);
@@ -162,8 +155,8 @@ public class SingularValueDecomposition implements java.io.Serializable {
             }
             if (wantv) {
 
-            // Place the transformation in V for subsequent
-            // back multiplication.
+            // Tempatkan transformasi dalam V untuk
+            // perkalian selanjutnya
 
                for (int i = k+1; i < n; i++) {
                   V[i][k] = e[i];
@@ -171,9 +164,8 @@ public class SingularValueDecomposition implements java.io.Serializable {
             }
          }
       }
-
-      // Set up the final bidiagonal matrix or order p.
-
+      // Siapkan matriks bidiagonal terakhir atau urutkan p
+      
       int p = Math.min(n,m+1);
       if (nct < n) {
          s[nct] = A[nct][nct];
@@ -186,8 +178,7 @@ public class SingularValueDecomposition implements java.io.Serializable {
       }
       e[p-1] = 0.0;
 
-      // If required, generate U.
-
+      //generate U
       if (wantu) {
          for (int j = nct; j < nu; j++) {
             for (int i = 0; i < m; i++) {
@@ -223,8 +214,7 @@ public class SingularValueDecomposition implements java.io.Serializable {
          }
       }
 
-      // If required, generate V.
-
+      //generate V
       if (wantv) {
          for (int k = n-1; k >= 0; k--) {
             if ((k < nrt) && (e[k] != 0.0)) {

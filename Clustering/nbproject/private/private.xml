@@ -2,6 +2,19 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/yanti/OneDrive/Documents/GitHub/Skripsi/Clustering/src/MatrixOperator.java</file>
+            <file>file:/C:/Users/yanti/OneDrive/Documents/GitHub/Skripsi/Clustering/src/MainFrame.java</file>
+            <file>file:/C:/Users/yanti/OneDrive/Documents/GitHub/Skripsi/Clustering/src/DocumentReader.java</file>
+            <file>file:/C:/Users/yanti/OneDrive/Documents/GitHub/Skripsi/Clustering/src/PorterStemmer.java</file>
+            <file>file:/C:/Users/yanti/OneDrive/Documents/GitHub/Skripsi/Clustering/src/SingularValueDecomposition.java</file>
+            <file>file:/C:/Users/yanti/OneDrive/Documents/GitHub/Skripsi/Clustering/src/DimensionReduction.java</file>
+            <file>file:/C:/Users/yanti/OneDrive/Documents/GitHub/Skripsi/Clustering/src/Tokenizer.java</file>
+            <file>file:/C:/Users/yanti/OneDrive/Documents/GitHub/Skripsi/Clustering/src/FuzzyRandomPartitionGenerator.java</file>
+            <file>file:/C:/Users/yanti/OneDrive/Documents/GitHub/Skripsi/Clustering/src/FuzzyCMeans.java</file>
+            <file>file:/C:/Users/yanti/OneDrive/Documents/GitHub/Skripsi/Clustering/src/KMeans.java</file>
+            <file>file:/C:/Users/yanti/OneDrive/Documents/GitHub/Skripsi/Clustering/src/TermList.java</file>
+            <file>file:/C:/Users/yanti/OneDrive/Documents/GitHub/Skripsi/Clustering/src/HardRandomPartitionGenerator.java</file>
+        </group>
     </open-files>
 </project-private>

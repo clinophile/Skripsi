@@ -43,7 +43,7 @@ public class DimensionReduction {
                 docTerm[j] = US[termIdx];
                 System.out.println(Arrays.toString(docTerm[j]));
             }
-            System.out.println("\n");
+            System.out.println(" reduce matrix :");
             reduceMatrix(docTerm, i);
             System.out.println("\n\n");
         }

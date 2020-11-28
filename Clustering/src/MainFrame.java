@@ -6,24 +6,9 @@
 
 import cern.colt.matrix.DoubleMatrix2D;
 import cern.colt.matrix.impl.DenseDoubleMatrix2D;
-import java.io.IOException;
 import javax.swing.JFileChooser;
-import java.io.File;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
 import javax.swing.JOptionPane;
-import javax.swing.RowFilter;
-import javax.swing.RowSorter;
-import javax.swing.SortOrder;
-import javax.swing.table.TableModel;
-import javax.swing.table.TableRowSorter;
 
 /**
  *

@@ -34,29 +34,11 @@ public class Tokenizer
 
 	public void tokenize(Document doc)
 	{
-//		String[] t=doc.getIsi().toLowerCase().replaceAll("[\\W&&[^\\s]]"," ").split("\\W+");
                 List<String> t= new ArrayList<String>() ;
                 t = Arrays.asList(removePunctuation(doc.getIsi().toLowerCase()).split("\\s+"));
 		lsttokencurrent = new TermList();
                 List<String> s = stemming.filter(t);
-//		for(int i=0; i<t.length; i++)
-//		{
-//                    System.out.println("Token: " +t[i]);
-////			if(t[i].length()>1)
-////			{
-////				if(!stpwlist.findStopWord(t[i]))
-////				{
-////					t[i] = t[i].toLowerCase();
-////					t[i] = removeReadMark(t[i]);
-////					lsttokencurrent.addTerm(new Term(t[i]));
-////					Term tkn = lsttoken.checkTerm(t[i]);
-////					if(tkn==null)
-////					{
-////						lsttoken.addTerm(new Term(t[i]));
-////					}
-////				}
-////			}
-//		}
+                
                 for(int i=0; i<s.size(); i++){
 //                    System.out.println("Stem: "+s[i]);
 			if(s.get(i).length()>1)
@@ -65,6 +47,7 @@ public class Tokenizer
 				{
 					String temp = s.get(i).toLowerCase();
 					//s[i] = removePunctuation(s[i]);
+                                        
 					lsttokencurrent.addTerm(new Term(temp));
 					Term tkn = lsttoken.checkTerm(temp);
 					if(tkn==null)
